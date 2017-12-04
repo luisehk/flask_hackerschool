@@ -1,0 +1,4 @@
+.git
+env
+.pyc
+.DS_Store
