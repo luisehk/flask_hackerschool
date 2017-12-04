@@ -1,0 +1,17 @@
+<html>
+	<head>
+    {% if title %}
+		  <title>{{ title }}</title>
+    {% else %}
+      <title>Mi primera aplicación web</title>
+    {% endif %}
+	</head>
+
+	<body>
+		<h1>Hola, {{ user.nickname }}</h1>
+    <a href="/">Inicio</a>
+    <hr />
+
+    {% block content %}{% endblock %}
+	</body>
+</html>
