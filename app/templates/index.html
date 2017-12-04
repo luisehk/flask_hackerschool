@@ -1,9 +1,19 @@
 <html>
 	<head>
-		<title>{{ title }}</title>
+    {% if title %}
+		  <title>{{ title }}</title>
+    {% else %}
+      <title>Mi primera aplicación web</title>
+    {% endif %}
 	</head>
 
 	<body>
-		Hola, {{ user.nickname }}
+		<h1>Hola, {{ user.nickname }}</h1>
+
+    {% for message in messages %}
+      <div>
+        <p><b>{{ message.author.nickname }} dice:</b> {{ message.body }}</p>
+      </div>
+    {% endfor %}
 	</body>
 </html>
