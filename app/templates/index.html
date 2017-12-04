@@ -6,4 +6,21 @@
       <p><b>{{ message.author.nickname }} dice:</b> {{ message.body }}</p>
     </div>
   {% endfor %}
+
+  <hr />
+
+  <form method="POST" action="/">
+    {{ form.csrf_token }}
+      <p>
+        {{ form.author.label }}: <br />
+        {{ form.author() }}
+      </p>
+      <p>
+        {{ form.body.label }}: <br />
+        {{ form.body() }}
+      </p>
+      <p>
+        <input type="submit" value="Enviar">
+      </p>
+  </form>
 {% endblock %}

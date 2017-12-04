@@ -1,9 +1,9 @@
 from flask import render_template
 from app import app
+from app.forms import MessageForm
 
 
-@app.route('/')
-@app.route('/index')
+@app.route('/', methods=['GET', 'POST'])
 def index():
     user = {'nickname': 'Luis'}
 
@@ -18,9 +18,18 @@ def index():
         }
     ]
 
+    form = MessageForm()
+
+    if form.validate_on_submit():
+        messages.append({
+            'author': {'nickname': form.author.data},
+            'body': form.body.data
+        })
+
     return render_template(
         'index.html',
         title='Mi primera aplicación',
         user=user,
-        messages=messages
+        messages=messages,
+        form=form
     )
