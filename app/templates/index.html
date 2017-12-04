@@ -3,7 +3,11 @@
 {% block content %}
   {% for message in messages %}
     <div>
-      <p><b>{{ message.author.nickname }} dice:</b> {{ message.body }}</p>
+      <p><b>{{ message.author }} dice:</b> {{ message.body }}</p>
+    </div>
+  {% else %}
+    <div>
+      <p>No hay mensajes.</p>
     </div>
   {% endfor %}
 
