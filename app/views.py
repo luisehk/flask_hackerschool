@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, redirect
 from app import app, db
 from app.forms import MessageForm
 from app.models import Message
@@ -13,6 +13,8 @@ def index():
         m = Message(author=form.author.data, body=form.body.data)
         db.session.add(m)
         db.session.commit()
+
+        return redirect('/')
 
     messages = Message.query.all()
 
